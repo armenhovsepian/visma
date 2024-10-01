@@ -1,0 +1,10 @@
+F:\GithubProjects\Visma assignment\timelogger-master\server\Timelogger\bin\Debug\netcoreapp3.1\Timelogger.deps.json
+F:\GithubProjects\Visma assignment\timelogger-master\server\Timelogger\bin\Debug\netcoreapp3.1\Timelogger.dll
+F:\GithubProjects\Visma assignment\timelogger-master\server\Timelogger\bin\Debug\netcoreapp3.1\Timelogger.pdb
+F:\GithubProjects\Visma assignment\timelogger-master\server\Timelogger\obj\Debug\netcoreapp3.1\Timelogger.csproj.AssemblyReference.cache
+F:\GithubProjects\Visma assignment\timelogger-master\server\Timelogger\obj\Debug\netcoreapp3.1\Timelogger.GeneratedMSBuildEditorConfig.editorconfig
+F:\GithubProjects\Visma assignment\timelogger-master\server\Timelogger\obj\Debug\netcoreapp3.1\Timelogger.AssemblyInfoInputs.cache
+F:\GithubProjects\Visma assignment\timelogger-master\server\Timelogger\obj\Debug\netcoreapp3.1\Timelogger.AssemblyInfo.cs
+F:\GithubProjects\Visma assignment\timelogger-master\server\Timelogger\obj\Debug\netcoreapp3.1\Timelogger.csproj.CoreCompileInputs.cache
+F:\GithubProjects\Visma assignment\timelogger-master\server\Timelogger\obj\Debug\netcoreapp3.1\Timelogger.dll
+F:\GithubProjects\Visma assignment\timelogger-master\server\Timelogger\obj\Debug\netcoreapp3.1\Timelogger.pdb
