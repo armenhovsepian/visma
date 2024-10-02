@@ -35,13 +35,12 @@ namespace Timelogger.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSwaggerGen();
-            services.AddSwaggerGen(c =>
+            services.AddSwaggerGen(options =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo
+                options.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "Implement Swagger UI",
-                    Description = "A simple example to Implement Swagger UI",
+                    Title = "Visma API doc"
                 });
             });
 
@@ -109,10 +108,10 @@ namespace Timelogger.Api
         private static void SeedDatabase(IServiceScope scope)
         {
             var context = scope.ServiceProvider.GetService<TimeLoggerContext>();
-            var testProject1 = new Project("e-conomic Interview", DateTime.UtcNow.AddDays(1));
+            var testProject = new Project("e-conomic Interview", DateTime.UtcNow.AddDays(120));
 
 
-            context.Projects.Add(testProject1);
+            context.Projects.Add(testProject);
 
             context.SaveChanges();
         }

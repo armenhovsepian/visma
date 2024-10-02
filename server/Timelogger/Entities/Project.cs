@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Timelogger.Exceptions;
 using Timelogger.Helpers;
 using Timelogger.Results;
 
@@ -25,12 +26,12 @@ namespace Timelogger.Entities
         {
             if (string.IsNullOrEmpty(name))
             {
-                throw new ArgumentNullException("Project name can not be null or empty.");
+                throw new ProjectException("Project name can not be null or empty.");
             }
 
             if (deadline < DateTime.UtcNow)
             {
-                throw new ArgumentNullException("Project deadline cannot be in the past.");
+                throw new ProjectException("Project deadline cannot be in the past.");
             }
 
             Guid = Guid.NewGuid();

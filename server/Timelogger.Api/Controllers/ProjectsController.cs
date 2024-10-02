@@ -23,20 +23,12 @@ namespace Timelogger.Api.Controllers
             _logger = logger;
         }
 
-
-        [HttpGet]
-        [Route("hello-world")]
-        public string HelloWorld()
-        {
-            return "Hello Back!";
-        }
-
         // GET api/projects
         [HttpGet]
-        [Route("api/projects/{pageNumber:int?}/{pageSize:int?}")]
-        public async Task<IActionResult> GetAll(int? pageNumber, int? pageSize, CancellationToken cancellationToken)
+        [Route("api/projects")]
+        public async Task<IActionResult> GetAll([FromQuery] int? pageNumber, [FromQuery] int? pageSize, [FromQuery] bool? sorted, CancellationToken cancellationToken)
         {
-            var projects = await _projectRepository.GetProjects(pageNumber ?? 1, pageSize ?? 10, cancellationToken);
+            var projects = await _projectRepository.GetProjects(pageNumber ?? 1, pageSize ?? 10, sorted, cancellationToken);
             return Ok(projects);
         }
 
@@ -55,8 +47,8 @@ namespace Timelogger.Api.Controllers
         }
 
         [HttpGet]
-        [Route("api/projects/{projectGuid:Guid}/timeRegistrations/{pageNumber:int?}/{pageSize:int?}")]
-        public async Task<IActionResult> TimeRegistrations(Guid projectGuid, int? pageNumber, int? pageSize, CancellationToken cancellationToken)
+        [Route("api/projects/{projectGuid:Guid}/timeRegistrations")]
+        public async Task<IActionResult> TimeRegistrations(Guid projectGuid, [FromQuery] int? pageNumber, [FromQuery] int? pageSize, CancellationToken cancellationToken)
         {
             var timeRegistrations = await _projectRepository.GetTimeRegistrations(projectGuid, pageNumber ?? 1, pageSize ?? 10, cancellationToken);
             if (timeRegistrations == null)
@@ -68,6 +60,11 @@ namespace Timelogger.Api.Controllers
             return Ok(timeRegistrations);
         }
 
+        /// <summary>
+        /// Create a new Project
+        /// </summary>
+        /// <param name="project"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("api/projects/create")]
         public async Task<IActionResult> Create(CreateProjectRequest project)

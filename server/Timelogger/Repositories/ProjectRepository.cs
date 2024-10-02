@@ -26,10 +26,16 @@ namespace Timelogger.Repositories
                 .SingleOrDefaultAsync(project => project.Guid == projectGuid, cancellationToken);
         }
 
-        public async Task<List<ProjectDto>> GetProjects(int pageNumber, int pageSize, CancellationToken cancellationToken = default)
+        public async Task<List<ProjectDto>> GetProjects(int pageNumber, int pageSize, bool? sorted, CancellationToken cancellationToken = default)
         {
-            return await _context.Projects
-                .Skip((pageNumber - 1) * pageSize)
+            IOrderedQueryable<Project> projects = sorted switch
+            {
+                true => _context.Projects.OrderByDescending(p => p.Deadline),
+                false => _context.Projects.OrderBy(p => p.Deadline),
+                _ => _context.Projects.OrderBy(p => p.Id),
+            };
+
+            return await projects.Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .Select(p => new ProjectDto
                 {
