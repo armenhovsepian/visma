@@ -13,13 +13,19 @@ namespace Timelogger.Api.Models
 
         [Required]
         public string Name { get; set; }
-        public string Description { get; set; }
-        public string Color { get; set; }
         public Guid Guid { get; set; }
         public DateTime Deadline { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime? CompletedDate { get; set; }
 
         public List<TimeRegistrationModel> TimeRegistrations { get; set; }
+    }
+
+
+    public class CreateProjectRequest
+    {
+        [Required]
+        public string Name { get; set; }
+        public DateTime Deadline { get; set; }
     }
 }

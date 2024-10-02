@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YMFRC9H4HXQ=",
+  "dgSpecHash": "ib8zS5+EhIE=",
   "success": true,
   "projectFilePath": "F:\\GithubProjects\\Visma assignment\\visma\\server\\Timelogger.Api\\Timelogger.Api.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\rmnho\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\3.1.8\\microsoft.entityframeworkcore.abstractions.3.1.8.nupkg.sha512",
     "C:\\Users\\rmnho\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\3.1.8\\microsoft.entityframeworkcore.analyzers.3.1.8.nupkg.sha512",
     "C:\\Users\\rmnho\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\3.1.8\\microsoft.entityframeworkcore.inmemory.3.1.8.nupkg.sha512",
+    "C:\\Users\\rmnho\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\rmnho\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.8\\microsoft.extensions.caching.abstractions.3.1.8.nupkg.sha512",
     "C:\\Users\\rmnho\\.nuget\\packages\\microsoft.extensions.caching.memory\\3.1.8\\microsoft.extensions.caching.memory.3.1.8.nupkg.sha512",
     "C:\\Users\\rmnho\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.8\\microsoft.extensions.configuration.3.1.8.nupkg.sha512",
@@ -21,6 +22,11 @@
     "C:\\Users\\rmnho\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.8\\microsoft.extensions.logging.abstractions.3.1.8.nupkg.sha512",
     "C:\\Users\\rmnho\\.nuget\\packages\\microsoft.extensions.options\\3.1.8\\microsoft.extensions.options.3.1.8.nupkg.sha512",
     "C:\\Users\\rmnho\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.8\\microsoft.extensions.primitives.3.1.8.nupkg.sha512",
+    "C:\\Users\\rmnho\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
+    "C:\\Users\\rmnho\\.nuget\\packages\\swashbuckle.aspnetcore\\6.8.1\\swashbuckle.aspnetcore.6.8.1.nupkg.sha512",
+    "C:\\Users\\rmnho\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.8.1\\swashbuckle.aspnetcore.swagger.6.8.1.nupkg.sha512",
+    "C:\\Users\\rmnho\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.8.1\\swashbuckle.aspnetcore.swaggergen.6.8.1.nupkg.sha512",
+    "C:\\Users\\rmnho\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.8.1\\swashbuckle.aspnetcore.swaggerui.6.8.1.nupkg.sha512",
     "C:\\Users\\rmnho\\.nuget\\packages\\system.collections.immutable\\1.7.1\\system.collections.immutable.1.7.1.nupkg.sha512",
     "C:\\Users\\rmnho\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",
     "C:\\Users\\rmnho\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"

@@ -10,8 +10,8 @@ using Timelogger.Repositories;
 
 namespace Timelogger.Api.Controllers
 {
-    [Route("api/[controller]")]
-    public class ProjectsController : Controller
+    [ApiController]
+    public class ProjectsController : ControllerBase
     {
         private readonly IProjectRepository _projectRepository;
 
@@ -31,14 +31,14 @@ namespace Timelogger.Api.Controllers
         // GET api/projects
         [HttpGet]
         [Route("api/projects/{pageNumber:int?}/{pageSize:int?}")]
-        public async Task<IActionResult> GetAll(uint? pageNumber, uint? pageSize, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetAll(int? pageNumber, int? pageSize, CancellationToken cancellationToken)
         {
-            var projects = await _projectRepository.GetAll((int)(pageNumber ?? 1), (int)(pageSize ?? 10), cancellationToken);
+            var projects = await _projectRepository.GetAll(pageNumber ?? 1, pageSize ?? 10, cancellationToken);
             return Ok(projects.Select(project => project.ToProjectModel()).ToList());
         }
 
         [HttpGet]
-        [Route("api/projects/{projectGuid: Guid}")]
+        [Route("api/projects/{projectGuid:Guid}")]
         public async Task<IActionResult> Get(Guid projectGuid, CancellationToken cancellationToken)
         {
             var project = await _projectRepository.Get(projectGuid, cancellationToken);
@@ -65,9 +65,9 @@ namespace Timelogger.Api.Controllers
 
         [HttpPost]
         [Route("api/projects/create")]
-        public async Task<IActionResult> Create(ProjectModel project)
+        public async Task<IActionResult> Create(CreateProjectRequest project)
         {
-            var createdProject = new Project(project.Name, project.Description, project.Color, project.Deadline);
+            var createdProject = new Project(project.Name, project.Deadline);
 
             await _projectRepository.Create(createdProject);
             await _projectRepository.SaveChangesAsync();
@@ -75,8 +75,8 @@ namespace Timelogger.Api.Controllers
             return Created($"api/projects/{createdProject.Guid}", createdProject);
         }
 
-        [HttpGet]
-        [Route("api/projects/{projectGuid: Guid}/registerTime")]
+        [HttpPost]
+        [Route("api/projects/{projectGuid:Guid}/registerTime")]
         public async Task<IActionResult> RegisterTime(Guid projectGuid, TimeRegistrationModel timeRegistration, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid)
@@ -100,7 +100,7 @@ namespace Timelogger.Api.Controllers
 
         // PUT: api/projects/5
         [HttpPut]
-        [Route("api/projects/{projectGuid: Guid}/complete")]
+        [Route("api/projects/{projectGuid:Guid}/complete")]
         public async Task<IActionResult> Complete(Guid projectGuid, CancellationToken cancellationToken)
         {
             var project = await _projectRepository.Get(projectGuid, cancellationToken);

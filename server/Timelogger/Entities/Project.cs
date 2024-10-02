@@ -17,8 +17,6 @@ namespace Timelogger.Entities
         public int Id { get; private set; }
         public Guid Guid { get; private set; }
         public string Name { get; private set; }
-        public string Description { get; private set; }
-        public string Color { get; private set; }
         public int UserId { get; private set; }
         public DateTime Deadline { get; private set; }
         public bool IsCompleted => CompletedDate != null;
@@ -28,11 +26,20 @@ namespace Timelogger.Entities
         public virtual List<TimeRegistration> TimeRegistrations { get; set; }
 
 
-        public Project(string name, string description, string color, DateTime deadline)
+        public Project(string name, DateTime deadline)
         {
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new ArgumentNullException("Project name can not be null or empty.");
+            }
+
+            if (deadline < DateTime.UtcNow)
+            {
+                throw new ArgumentNullException("Project deadline cannot be in the past.");
+            }
+
             Guid = Guid.NewGuid();
             Name = name;
-            Description = description;
             Deadline = deadline;
             CreatedDate = DateTime.UtcNow;
         }
@@ -44,7 +51,7 @@ namespace Timelogger.Entities
                 return Result.Failure(new[] { "Cannot log time to a completed project." });
             }
 
-            if (DateTimeHelpers.IsDateRangeValid(start, end))
+            if (!DateTimeHelpers.IsDateRangeValid(start, end))
             {
                 return Result.Failure(new[] { "The date range is invalid (less than 30 minutes)." });
             }

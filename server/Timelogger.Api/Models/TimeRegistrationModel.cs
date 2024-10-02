@@ -21,7 +21,7 @@ namespace Timelogger.Api.Models
             }
 
 
-            if (DateTimeHelpers.IsDateRangeValid(Start, End))
+            if (!DateTimeHelpers.IsDateRangeValid(Start, End))
             {
                 yield return new ValidationResult(
                     $"The date range is invalid (less than 30 minutes).",

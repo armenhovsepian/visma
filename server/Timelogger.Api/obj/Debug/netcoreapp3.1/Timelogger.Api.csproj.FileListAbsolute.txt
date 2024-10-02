@@ -89,3 +89,8 @@ F:\GithubProjects\Visma assignment\visma\server\Timelogger.Api\obj\Debug\netcore
 F:\GithubProjects\Visma assignment\visma\server\Timelogger.Api\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.buildTransitive.Timelogger.Api.props
 F:\GithubProjects\Visma assignment\visma\server\Timelogger.Api\obj\Debug\netcoreapp3.1\Timelogg.26971BB4.Up2Date
 F:\GithubProjects\Visma assignment\visma\server\Timelogger.Api\obj\Debug\netcoreapp3.1\Timelogger.Api.genruntimeconfig.cache
+F:\GithubProjects\Visma assignment\visma\server\Timelogger.Api\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+F:\GithubProjects\Visma assignment\visma\server\Timelogger.Api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+F:\GithubProjects\Visma assignment\visma\server\Timelogger.Api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\GithubProjects\Visma assignment\visma\server\Timelogger.Api\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\GithubProjects\Visma assignment\visma\server\Timelogger.Api\obj\Debug\netcoreapp3.1\Timelogger.Api.MvcApplicationPartsAssemblyInfo.cs

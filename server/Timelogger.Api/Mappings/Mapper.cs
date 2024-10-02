@@ -12,8 +12,6 @@ namespace Timelogger.Api.Mappings
             {
                 Guid = project.Guid,
                 Name = project.Name,
-                Description = project.Description,
-                Color = project.Color,
                 Deadline = project.Deadline,
                 CompletedDate = project.CompletedDate,
                 TimeRegistrations = project.TimeRegistrations
