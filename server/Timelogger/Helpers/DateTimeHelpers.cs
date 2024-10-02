@@ -8,7 +8,7 @@ namespace Timelogger.Helpers
         {
             TimeSpan difference = end - start;
             int minutes = (int)difference.TotalMinutes;
-            return minutes >= 30;
+            return minutes >= Constants.RegisterationTimeDuration;
         }
     }
 }

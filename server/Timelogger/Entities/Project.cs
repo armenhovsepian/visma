@@ -46,6 +46,11 @@ namespace Timelogger.Entities
                 return Result.Failure(new[] { "Cannot log time to a completed project." });
             }
 
+            if (start > end)
+            {
+                return Result.Failure(new[] { $"Start date ({start}) cannot be later than the end date ({end})." });
+            }
+
             if (!DateTimeHelpers.IsDateRangeValid(start, end))
             {
                 return Result.Failure(new[] { "The date range is invalid (less than 30 minutes)." });
