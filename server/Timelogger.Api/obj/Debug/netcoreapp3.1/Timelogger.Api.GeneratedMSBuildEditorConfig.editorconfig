@@ -1,5 +1,5 @@
 is_global = true
 build_property.RootNamespace = Timelogger.Api
-build_property.ProjectDir = F:\GithubProjects\Visma assignment\timelogger-master\server\Timelogger.Api\
+build_property.ProjectDir = F:\GithubProjects\Visma assignment\visma\server\Timelogger.Api\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

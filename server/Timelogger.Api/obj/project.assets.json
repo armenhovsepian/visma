@@ -759,11 +759,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\GithubProjects\\Visma assignment\\timelogger-master\\server\\Timelogger.Api\\Timelogger.Api.csproj",
+      "projectUniqueName": "F:\\GithubProjects\\Visma assignment\\visma\\server\\Timelogger.Api\\Timelogger.Api.csproj",
       "projectName": "Timelogger.Api",
-      "projectPath": "F:\\GithubProjects\\Visma assignment\\timelogger-master\\server\\Timelogger.Api\\Timelogger.Api.csproj",
+      "projectPath": "F:\\GithubProjects\\Visma assignment\\visma\\server\\Timelogger.Api\\Timelogger.Api.csproj",
       "packagesPath": "C:\\Users\\rmnho\\.nuget\\packages\\",
-      "outputPath": "F:\\GithubProjects\\Visma assignment\\timelogger-master\\server\\Timelogger.Api\\obj\\",
+      "outputPath": "F:\\GithubProjects\\Visma assignment\\visma\\server\\Timelogger.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -784,8 +784,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "F:\\GithubProjects\\Visma assignment\\timelogger-master\\server\\Timelogger\\Timelogger.csproj": {
-              "projectPath": "F:\\GithubProjects\\Visma assignment\\timelogger-master\\server\\Timelogger\\Timelogger.csproj"
+            "F:\\GithubProjects\\Visma assignment\\visma\\server\\Timelogger\\Timelogger.csproj": {
+              "projectPath": "F:\\GithubProjects\\Visma assignment\\visma\\server\\Timelogger\\Timelogger.csproj"
             }
           }
         }

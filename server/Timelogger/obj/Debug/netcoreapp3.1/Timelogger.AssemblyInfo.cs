@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Timelogger")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b7d586e3a828efd87b315f82c9ef30886be7c69")]
 [assembly: System.Reflection.AssemblyProductAttribute("Timelogger")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Timelogger")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

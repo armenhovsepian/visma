@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CI0UJMzct64=",
+  "dgSpecHash": "mki1Y3KKfMk=",
   "success": true,
-  "projectFilePath": "F:\\GithubProjects\\Visma assignment\\timelogger-master\\server\\Timelogger\\Timelogger.csproj",
+  "projectFilePath": "F:\\GithubProjects\\Visma assignment\\visma\\server\\Timelogger\\Timelogger.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rmnho\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\rmnho\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
