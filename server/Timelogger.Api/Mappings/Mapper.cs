@@ -5,7 +5,7 @@ namespace Timelogger.Api.Mappings
 {
     public static class Mapper
     {
-        public static ProjectDto ToProjectModel(this Project project)
+        public static ProjectDto ToProjectDto(this Project project)
         {
             return new ProjectDto
             {
@@ -17,7 +17,7 @@ namespace Timelogger.Api.Mappings
             };
         }
 
-        public static TimeRegistrationDto ToTimeRegistrationModel(this TimeRegistration timeRegistration)
+        public static TimeRegistrationDto ToTimeRegistrationDto(this TimeRegistration timeRegistration)
         {
             return new TimeRegistrationDto
             {

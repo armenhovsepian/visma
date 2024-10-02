@@ -63,18 +63,19 @@ namespace Timelogger.Repositories
             await _context.SaveChangesAsync(cancellationToken);
         }
 
-        public async Task<List<TimeRegistrationDto>> GetTimeRegistrations(Guid projectGuid, int pageNumber, int pageSize, CancellationToken cancellationToken = default)
+        public async Task<List<TimeRegistration>> GetTimeRegistrations(Guid projectGuid, int pageNumber, int pageSize, CancellationToken cancellationToken = default)
         {
             return await _context.Projects
                 .Where(project => project.Guid == projectGuid)
                 .SelectMany(project => project.TimeRegistrations)
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
-                .Select(tr => new TimeRegistrationDto
-                {
-                    Start = tr.Start,
-                    End = tr.End
-                })
+                .AsNoTracking()
+                //.Select(tr => new TimeRegistrationDto
+                //{
+                //    Start = tr.Start,
+                //    End = tr.End
+                //})
                 .ToListAsync(cancellationToken);
         }
     }

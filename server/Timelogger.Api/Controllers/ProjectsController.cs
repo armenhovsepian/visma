@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Timelogger.Api.Mappings;
@@ -43,7 +44,7 @@ namespace Timelogger.Api.Controllers
                 return NotFound();
             }
 
-            return Ok(project.ToProjectModel());
+            return Ok(project.ToProjectDto());
         }
 
         [HttpGet]
@@ -51,13 +52,11 @@ namespace Timelogger.Api.Controllers
         public async Task<IActionResult> TimeRegistrations(Guid projectGuid, [FromQuery] int? pageNumber, [FromQuery] int? pageSize, CancellationToken cancellationToken)
         {
             var timeRegistrations = await _projectRepository.GetTimeRegistrations(projectGuid, pageNumber ?? 1, pageSize ?? 10, cancellationToken);
-            if (timeRegistrations == null)
-            {
-                _logger.LogInformation($"There are no TimeRegistrations associated with a project identified by the GUID '{projectGuid}'");
-                return NotFound();
-            }
 
-            return Ok(timeRegistrations);
+            return Ok(new TimeRegistrationsResponse
+            {
+                TimeRegistrations = timeRegistrations.Select(tr => tr.ToTimeRegistrationDto()).ToList()
+            });
         }
 
         /// <summary>
@@ -79,7 +78,7 @@ namespace Timelogger.Api.Controllers
 
         [HttpPost]
         [Route("api/projects/{projectGuid:Guid}/registerTime")]
-        public async Task<IActionResult> RegisterTime(Guid projectGuid, TimeRegistrationModel timeRegistration, CancellationToken cancellationToken)
+        public async Task<IActionResult> RegisterTime(Guid projectGuid, CreateTimeRegistration timeRegistration, CancellationToken cancellationToken)
         {
             if (!ModelState.IsValid)
             {

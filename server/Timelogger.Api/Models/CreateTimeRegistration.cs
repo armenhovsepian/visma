@@ -5,7 +5,7 @@ using Timelogger.Helpers;
 
 namespace Timelogger.Api.Models
 {
-    public class TimeRegistrationModel : IValidatableObject
+    public class CreateTimeRegistration : IValidatableObject
     {
         [Required]
         public DateTime Start { get; set; }
