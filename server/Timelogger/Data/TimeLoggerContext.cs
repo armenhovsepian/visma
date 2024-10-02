@@ -22,6 +22,11 @@ namespace Timelogger.Data
                 .IsRequired();
 
             modelBuilder.Entity<Project>()
+                .Property(p => p.Customer)
+                .HasMaxLength(200)
+                .IsRequired();
+
+            modelBuilder.Entity<Project>()
                 .HasIndex(p => p.Guid);
         }
         #endregion

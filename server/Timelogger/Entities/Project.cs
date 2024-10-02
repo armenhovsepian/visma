@@ -13,6 +13,7 @@ namespace Timelogger.Entities
         public int Id { get; private set; }
         public Guid Guid { get; private set; }
         public string Name { get; private set; }
+        public string Customer { get; private set; }
         public int UserId { get; private set; }
         public DateTime Deadline { get; private set; }
         public bool IsCompleted => CompletedDate != null;
@@ -33,6 +34,10 @@ namespace Timelogger.Entities
             {
                 throw new ProjectException("Project deadline cannot be in the past.");
             }
+
+            // Hardcoded customer and userId
+            Customer = "Visma";
+            UserId = 127;
 
             Guid = Guid.NewGuid();
             Name = name;

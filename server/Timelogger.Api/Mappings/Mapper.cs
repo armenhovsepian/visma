@@ -11,6 +11,7 @@ namespace Timelogger.Api.Mappings
             {
                 Guid = project.Guid,
                 Name = project.Name,
+                Customer = project.Customer,
                 Deadline = project.Deadline,
                 CreatedDate = project.CreatedDate,
                 IsCompleted = project.CompletedDate != null

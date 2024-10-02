@@ -41,6 +41,7 @@ namespace Timelogger.Repositories
                 {
                     Guid = p.Guid,
                     Name = p.Name,
+                    Customer = p.Customer,
                     Deadline = p.Deadline,
                     CreatedDate = p.CreatedDate,
                     IsCompleted = p.CompletedDate != null
