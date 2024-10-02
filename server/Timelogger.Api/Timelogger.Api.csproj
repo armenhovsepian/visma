@@ -9,6 +9,7 @@
   </ItemGroup>
   
   <ItemGroup>
+    <ProjectReference Include="..\Timelogger.Infrastructure\Timelogger.Infrastructure.csproj" />
     <ProjectReference Include="..\Timelogger\Timelogger.csproj" />
   </ItemGroup>
 

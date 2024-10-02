@@ -7,9 +7,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System;
-using Timelogger.Data;
 using Timelogger.Entities;
-using Timelogger.Repositories;
+using Timelogger.Infrastructure.Data;
+using Timelogger.Infrastructure.Data.Repositories;
+using Timelogger.Interfaces.Repositories;
 
 namespace Timelogger.Api
 {

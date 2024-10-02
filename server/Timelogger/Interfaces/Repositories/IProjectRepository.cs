@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Timelogger.DTOs;
 using Timelogger.Entities;
 
-namespace Timelogger.Repositories
+namespace Timelogger.Interfaces.Repositories
 {
     public interface IProjectRepository
     {

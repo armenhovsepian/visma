@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Timelogger.Api.Mappings;
 using Timelogger.Api.Models;
 using Timelogger.Entities;
-using Timelogger.Repositories;
+using Timelogger.Interfaces.Repositories;
 
 namespace Timelogger.Api.Controllers
 {

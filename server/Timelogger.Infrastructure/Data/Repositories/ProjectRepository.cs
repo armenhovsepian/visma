@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Timelogger.Data;
 using Timelogger.DTOs;
 using Timelogger.Entities;
+using Timelogger.Interfaces.Repositories;
 
-namespace Timelogger.Repositories
+namespace Timelogger.Infrastructure.Data.Repositories
 {
     public class ProjectRepository : IProjectRepository
     {
@@ -72,11 +72,6 @@ namespace Timelogger.Repositories
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .AsNoTracking()
-                //.Select(tr => new TimeRegistrationDto
-                //{
-                //    Start = tr.Start,
-                //    End = tr.End
-                //})
                 .ToListAsync(cancellationToken);
         }
     }

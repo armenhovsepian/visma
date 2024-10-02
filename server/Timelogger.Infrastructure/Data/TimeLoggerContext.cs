@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Timelogger.Entities;
 
-namespace Timelogger.Data
+namespace Timelogger.Infrastructure.Data
 {
     public class TimeLoggerContext : DbContext
     {

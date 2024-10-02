@@ -33,6 +33,7 @@
         "dependencies": {
           "Swashbuckle.AspNetCore": "6.8.1",
           "Timelogger": "1.0.0",
+          "Timelogger.Infrastructure": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -616,9 +617,6 @@
         }
       },
       "Timelogger/1.0.0": {
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.InMemory": "3.1.8"
-        },
         "runtime": {
           "Timelogger.dll": {
             "assemblyVersion": "1.0.0",
@@ -627,6 +625,21 @@
         },
         "compile": {
           "Timelogger.dll": {}
+        }
+      },
+      "Timelogger.Infrastructure/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.InMemory": "3.1.8",
+          "Timelogger": "1.0.0"
+        },
+        "runtime": {
+          "Timelogger.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "Timelogger.Infrastructure.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -2434,6 +2447,11 @@
       "hashPath": "system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
     },
     "Timelogger/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Timelogger.Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

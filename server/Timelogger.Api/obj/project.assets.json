@@ -390,14 +390,25 @@
       "Timelogger/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.InMemory": "3.1.8"
-        },
         "compile": {
           "bin/placeholder/Timelogger.dll": {}
         },
         "runtime": {
           "bin/placeholder/Timelogger.dll": {}
+        }
+      },
+      "Timelogger.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.InMemory": "3.1.8",
+          "Timelogger": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Timelogger.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Timelogger.Infrastructure.dll": {}
         }
       }
     }
@@ -1180,12 +1191,18 @@
       "type": "project",
       "path": "../Timelogger/Timelogger.csproj",
       "msbuildProject": "../Timelogger/Timelogger.csproj"
+    },
+    "Timelogger.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Timelogger.Infrastructure/Timelogger.Infrastructure.csproj",
+      "msbuildProject": "../Timelogger.Infrastructure/Timelogger.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Swashbuckle.AspNetCore >= 6.8.1",
-      "Timelogger >= 1.0.0"
+      "Timelogger >= 1.0.0",
+      "Timelogger.Infrastructure >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1220,6 +1237,9 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
+            "F:\\GithubProjects\\Visma assignment\\visma\\server\\Timelogger.Infrastructure\\Timelogger.Infrastructure.csproj": {
+              "projectPath": "F:\\GithubProjects\\Visma assignment\\visma\\server\\Timelogger.Infrastructure\\Timelogger.Infrastructure.csproj"
+            },
             "F:\\GithubProjects\\Visma assignment\\visma\\server\\Timelogger\\Timelogger.csproj": {
               "projectPath": "F:\\GithubProjects\\Visma assignment\\visma\\server\\Timelogger\\Timelogger.csproj"
             }
