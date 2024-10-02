@@ -1,5 +1,5 @@
 # Timelogger (server)
-Timeogger allows freelancers to track their time spent on projects, generate project overviews, and sort projects by deadline. The application adheres to object-oriented programming (OOP) best practices, including encapsulation, abstraction, dependency injection (DI), loose coupling, and the repository pattern.
+Timelogger allows freelancers to track their time spent on projects, generate project overviews, and sort projects by deadline. The application adheres to object-oriented programming (OOP) best practices, including encapsulation, abstraction, dependency injection (DI), loose coupling, and the repository pattern.
 
 ## Architecture
 The application follows a clean architecture, consisting of the following components:
