@@ -7,8 +7,9 @@ namespace Timelogger.Api.Models
 {
     public class TimeRegistrationModel : IValidatableObject
     {
-        public Guid ProjectGuid { get; set; }
+        [Required]
         public DateTime Start { get; set; }
+        [Required]
         public DateTime End { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)

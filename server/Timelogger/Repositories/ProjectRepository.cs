@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Timelogger.Data;
+using Timelogger.DTOs;
 using Timelogger.Entities;
 
 namespace Timelogger.Repositories
@@ -25,12 +26,19 @@ namespace Timelogger.Repositories
                 .SingleOrDefaultAsync(project => project.Guid == projectGuid, cancellationToken);
         }
 
-        public async Task<List<Project>> GetAll(int pageNumber, int pageSize, CancellationToken cancellationToken = default)
+        public async Task<List<ProjectDto>> GetProjects(int pageNumber, int pageSize, CancellationToken cancellationToken = default)
         {
             return await _context.Projects
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
-                .AsNoTracking()
+                .Select(p => new ProjectDto
+                {
+                    Guid = p.Guid,
+                    Name = p.Name,
+                    Deadline = p.Deadline,
+                    CreatedDate = p.CreatedDate,
+                    IsCompleted = p.CompletedDate != null
+                })
                 .ToListAsync(cancellationToken);
         }
 
@@ -47,6 +55,21 @@ namespace Timelogger.Repositories
         public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             await _context.SaveChangesAsync(cancellationToken);
+        }
+
+        public async Task<List<TimeRegistrationDto>> GetTimeRegistrations(Guid projectGuid, int pageNumber, int pageSize, CancellationToken cancellationToken = default)
+        {
+            return await _context.Projects
+                .Where(project => project.Guid == projectGuid)
+                .SelectMany(project => project.TimeRegistrations)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .Select(tr => new TimeRegistrationDto
+                {
+                    Start = tr.Start,
+                    End = tr.End
+                })
+                .ToListAsync(cancellationToken);
         }
     }
 }

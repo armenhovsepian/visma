@@ -9,11 +9,6 @@ namespace Timelogger.Entities
 {
     public class Project
     {
-        public Project()
-        {
-            TimeRegistrations = new List<TimeRegistration>();
-        }
-
         public int Id { get; private set; }
         public Guid Guid { get; private set; }
         public string Name { get; private set; }
@@ -23,8 +18,8 @@ namespace Timelogger.Entities
         public DateTime CreatedDate { get; private set; }
         public DateTime? CompletedDate { get; private set; }
 
-        public virtual List<TimeRegistration> TimeRegistrations { get; set; }
-
+        private readonly List<TimeRegistration> _timeRegistrations = new List<TimeRegistration>();
+        public IReadOnlyCollection<TimeRegistration> TimeRegistrations => _timeRegistrations.AsReadOnly();
 
         public Project(string name, DateTime deadline)
         {
@@ -61,7 +56,9 @@ namespace Timelogger.Entities
                 return Result.Failure(new[] { "The data range are trying to insert already exists in the database." });
             }
 
-            TimeRegistrations.Add(new TimeRegistration(Id, start, end));
+            // TODO: check date range overlaps
+
+            _timeRegistrations.Add(new TimeRegistration(Id, start, end));
 
             return Result.Success();
         }

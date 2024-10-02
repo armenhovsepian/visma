@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Timelogger.Api.Mappings;
@@ -14,10 +14,13 @@ namespace Timelogger.Api.Controllers
     public class ProjectsController : ControllerBase
     {
         private readonly IProjectRepository _projectRepository;
+        private readonly ILogger<ProjectsController> _logger;
 
-        public ProjectsController(IProjectRepository projectRepository)
+        public ProjectsController(IProjectRepository projectRepository,
+            ILogger<ProjectsController> logger)
         {
             _projectRepository = projectRepository;
+            _logger = logger;
         }
 
 
@@ -33,8 +36,8 @@ namespace Timelogger.Api.Controllers
         [Route("api/projects/{pageNumber:int?}/{pageSize:int?}")]
         public async Task<IActionResult> GetAll(int? pageNumber, int? pageSize, CancellationToken cancellationToken)
         {
-            var projects = await _projectRepository.GetAll(pageNumber ?? 1, pageSize ?? 10, cancellationToken);
-            return Ok(projects.Select(project => project.ToProjectModel()).ToList());
+            var projects = await _projectRepository.GetProjects(pageNumber ?? 1, pageSize ?? 10, cancellationToken);
+            return Ok(projects);
         }
 
         [HttpGet]
@@ -44,6 +47,7 @@ namespace Timelogger.Api.Controllers
             var project = await _projectRepository.Get(projectGuid, cancellationToken);
             if (project == null)
             {
+                _logger.LogInformation($"A project with the specified GUID '{projectGuid}' cannot be found.");
                 return NotFound();
             }
 
@@ -51,16 +55,17 @@ namespace Timelogger.Api.Controllers
         }
 
         [HttpGet]
-        [Route("api/projects/{projectGuid:Guid}/timeregistrations/{pageNumber:int?}/{pageSize:int?}")]
+        [Route("api/projects/{projectGuid:Guid}/timeRegistrations/{pageNumber:int?}/{pageSize:int?}")]
         public async Task<IActionResult> TimeRegistrations(Guid projectGuid, int? pageNumber, int? pageSize, CancellationToken cancellationToken)
         {
-            var project = await _projectRepository.Get(projectGuid, cancellationToken);
-            if (project == null)
+            var timeRegistrations = await _projectRepository.GetTimeRegistrations(projectGuid, pageNumber ?? 1, pageSize ?? 10, cancellationToken);
+            if (timeRegistrations == null)
             {
+                _logger.LogInformation($"There are no TimeRegistrations associated with a project identified by the GUID '{projectGuid}'");
                 return NotFound();
             }
 
-            return Ok(project.TimeRegistrations.Select(timeRegistration => timeRegistration.ToTimeRegistrationModel()).ToList());
+            return Ok(timeRegistrations);
         }
 
         [HttpPost]
@@ -97,8 +102,6 @@ namespace Timelogger.Api.Controllers
             return NoContent();
         }
 
-
-        // PUT: api/projects/5
         [HttpPut]
         [Route("api/projects/{projectGuid:Guid}/complete")]
         public async Task<IActionResult> Complete(Guid projectGuid, CancellationToken cancellationToken)
@@ -106,6 +109,7 @@ namespace Timelogger.Api.Controllers
             var project = await _projectRepository.Get(projectGuid, cancellationToken);
             if (project == null)
             {
+                _logger.LogInformation($"A project with the specified GUID '{projectGuid}' cannot be found.");
                 return NotFound();
             }
 
